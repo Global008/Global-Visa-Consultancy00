@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Visa Consultancy - Explore Europe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+    }
+    
+    body { 
+      font-family: 'Poppins', sans-serif; 
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #333; 
+      overflow-x: hidden;
+    }
+
+    /* Animated Background */
+    .bg-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7, #dda0dd);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Floating particles */
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(255,255,255,0.8);
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
+    }
+
+    /* Header Section */
+    header { 
+      background: linear-gradient(135deg, rgba(30,58,138,0.9), rgba(79,70,229,0.9)), url('https://images.unsplash.com/photo-1503264116251-35a269479413') center/cover no-repeat;
+      color: white; 
+      text-align: center; 
+      padding: 120px 20px; 
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(255,107,107,0.3), rgba(78,205,196,0.3), rgba(69,183,209,0.3));
+      animation: colorWave 8s ease-in-out infinite;
+    }
+
+    @keyframes colorWave {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.6; }
+    }
+
+    header h1 { 
+      font-size: 4.5rem; 
+      font-weight: 800;
+      text-shadow: 3px 3px 15px rgba(0,0,0,0.7);
+      margin-bottom: 20px;
+      animation: titleGlow 3s ease-in-out infinite;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% 200%;
+      animation: titleGlow 3s ease-in-out infinite, gradientText 4s ease infinite;
+    }
+
+    @keyframes titleGlow {
+      0%, 100% { text-shadow: 0 0 20px rgba(255,255,255,0.5); }
+      50% { text-shadow: 0 0 30px rgba(255,255,255,0.8), 0 0 40px rgba(255,107,107,0.6); }
+    }
+
+    @keyframes gradientText {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header p {
+      font-size: 1.8rem;
+      margin-bottom: 40px;
+      animation: fadeInUp 2s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .cta-button {
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+      color: white;
+      padding: 18px 40px;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .cta-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    }
+
+    /* Navigation */
+    nav { 
+      background: linear-gradient(135deg, rgba(30,58,138,0.95), rgba(79,70,229,0.95));
+      padding: 20px; 
+      text-align: center;
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+
+    nav a { 
+      color: white; 
+      margin: 0 25px; 
+      text-decoration: none; 
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 10px 20px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    nav a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    nav a:hover::before {
+      left: 100%;
+    }
+
+    nav a:hover { 
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    /* Section Styling */
+    section { 
+      padding: 80px 20px; 
+      max-width: 1400px; 
+      margin: auto;
+      background: rgba(255,255,255,0.95);
+      margin-bottom: 40px;
+      border-radius: 30px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,107,107,0.05), transparent);
+      animation: sectionGlow 10s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes sectionGlow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    h2.section-title { 
+      text-align: center; 
+      font-size: 3.5rem; 
+      font-weight: 800;
+      background: linear-gradient(45deg, #1e3a8a, #7c3aed, #ec4899);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 50px;
+      position: relative;
+      animation: titleBounce 2s ease-in-out infinite;
+    }
+
+    @keyframes titleBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    h2.section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+      border-radius: 2px;
+    }
+
+    /* Cards Grid */
+    .places { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+      gap: 40px; 
+      margin-top: 60px;
+    }
+
+    .card { 
+      background: linear-gradient(145deg, #ffffff, #f8fafc);
+      border-radius: 25px; 
+      overflow: hidden; 
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+      position: relative;
+      border: 2px solid transparent;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+      border-radius: 25px;
+      padding: 2px;
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card:hover { 
+      transform: translateY(-15px) scale(1.02);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+    }
+
+    .card img { 
+      width: 100%; 
+      height: 250px; 
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.1);
+    }
+
+    .card h3 { 
+      padding: 25px; 
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      font-size: 1.4rem; 
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .card p { 
+      padding: 25px; 
+      color: #555; 
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    /* Articles Section */
+    .articles .article { 
+      background: linear-gradient(145deg, #ffffff, #f8fafc);
+      border-radius: 20px; 
+      margin-bottom: 30px; 
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      overflow: hidden;
+      border-left: 6px solid;
+      border-image: linear-gradient(45deg, #ff6b6b, #4ecdc4) 1;
+      transition: all 0.3s ease;
+    }
+
+    .articles .article:hover {
+      transform: translateX(10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+
+    .articles h3 { 
+      background: linear-gradient(135deg, #1e3a8a, #7c3aed);
+      color: white; 
+      padding: 25px; 
+      cursor: pointer;
+      font-size: 1.3rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .articles h3::after {
+      content: '▼';
+      float: right;
+      transition: transform 0.3s ease;
+    }
+
+    .articles h3.active::after {
+      transform: rotate(180deg);
+    }
+
+    .articles h3:hover {
+      background: linear-gradient(135deg, #7c3aed, #ec4899);
+    }
+
+    .articles p { 
+      padding: 30px; 
+      color: #555;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      display: none;
+      animation: slideDown 0.3s ease-out;
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Video Section */
+    .videos {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+    }
+
+    .videos h2 {
+      color: white;
+      -webkit-text-fill-color: white;
+    }
+
+    .video-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .video-link {
+      background: rgba(255,255,255,0.1);
+      padding: 30px;
+      border-radius: 20px;
+      text-decoration: none;
+      color: white;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255,255,255,0.2);
+      text-align: center;
+    }
+
+    .video-link:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    .video-link i {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    /* Stats Section */
+    .stats {
+      background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+      color: white;
+      text-align: center;
+    }
+
+    .stats h2 {
+      color: white;
+      -webkit-text-fill-color: white;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-top: 50px;
+    }
+
+    .stat-item {
+      background: rgba(255,255,255,0.1);
+      padding: 40px 20px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .stat-item:hover {
+      transform: scale(1.05);
+      background: rgba(255,255,255,0.2);
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    /* About Section */
+    #about {
+      background: linear-gradient(135deg, #96ceb4, #ffeaa7);
+    }
+
+    #about p {
+      font-size: 1.3rem;
+      line-height: 1.8;
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+      color: #333;
+    }
+
+    /* Footer */
+    footer { 
+      background: linear-gradient(135deg, #1e3a8a, #7c3aed);
+      color: white; 
+      text-align: center; 
+      padding: 60px 20px; 
+      margin-top: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7);
+    }
+
+    .whatsapp-links {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .whatsapp-links a { 
+      color: white; 
+      background: linear-gradient(45deg, #25D366, #128C7E);
+      padding: 15px 25px; 
+      border-radius: 50px; 
+      text-decoration: none; 
+      transition: all 0.3s ease;
+      font-weight: 600;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .whatsapp-links a:hover { 
+      background: linear-gradient(45deg, #128C7E, #075E54);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    /* Popup */
+    .popup { 
+      position: fixed; 
+      display: none; 
+      top: 0; 
+      left: 0; 
+      width: 100%; 
+      height: 100%; 
+      background: rgba(0,0,0,0.9);
+      justify-content: center; 
+      align-items: center; 
+      z-index: 9999;
+      backdrop-filter: blur(5px);
+    }
+
+    .popup img { 
+      max-width: 90%; 
+      max-height: 90%; 
+      border-radius: 15px; 
+      box-shadow: 0 0 50px rgba(255,255,255,0.3);
+      animation: popupZoom 0.3s ease-out;
+    }
+
+    @keyframes popupZoom {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .popup.active { 
+      display: flex; 
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header h1 { font-size: 3rem; }
+      header p { font-size: 1.4rem; }
+      h2.section-title { font-size: 2.5rem; }
+      .places { grid-template-columns: 1fr; }
+      nav a { margin: 0 10px; font-size: 1rem; }
+    }
+
+    /* Scroll animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-animation"></div>
+  
+  <header>
+    <div class="particle" style="top: 10%; left: 10%; animation-delay: 0s;"></div>
+    <div class="particle" style="top: 20%; left: 80%; animation-delay: 1s;"></div>
+    <div class="particle" style="top: 80%; left: 20%; animation-delay: 2s;"></div>
+    <div class="particle" style="top: 70%; left: 70%; animation-delay: 3s;"></div>
+    
+    <h1>Global Visa Consultancy</h1>
+    <p>🌍 Discover the beauty, history and culture of Europe 🌍</p>
+    <a href="#places" class="cta-button">
+      <i class="fas fa-rocket"></i> Start Your Journey
+    </a>
+  </header>
+
+  <nav>
+    <a href="#places"><i class="fas fa-chart-bar"></i> Chart Sheet</a>
+    <a href="#articles"><i class="fas fa-newspaper"></i> Articles</a>
+    <a href="#videos"><i class="fas fa-video"></i> Reviews</a>
+    <a href="#stats"><i class="fas fa-trophy"></i> Our Success</a>
+    <a href="#about"><i class="fas fa-info-circle"></i> About</a>
+  </nav>
+
+  <section id="places" class="fade-in">
+    <h2 class="section-title">🏛️ Top European Destinations</h2>
+    <div class="places">
+      <div class="card">
+        <img src="1.jpg" alt="Chart 1">
+        <h3>🇪🇺 ২১ টি দেশের চার্ট</h3>
+        <p>বিস্তারিত জানতে ভিজিট করতে হবে আমাদের অফিসে। আমাদের এক্সপার্ট টিম আপনাকে সম্পূর্ণ গাইডেন্স প্রদান করবে।</p>
+      </div>
+      <div class="card">
+        <img src="2.jpg" alt="Chart 2">
+        <h3>🌟 ২০ টি দেশের চার্ট</h3>
+        <p>আমরা সুনামের সাথে গত ১১ বছর আপনাদের সেবায় নিয়োজিত। হাজারো সফল ভিসা প্রসেসিং এর অভিজ্ঞতা রয়েছে।</p>
+      </div>
+      <div class="card">
+        <img src="3.jpg" alt="Chart 3">
+        <h3>⏰ ২২ টি দেশের চার্ট</h3>
+        <p>জীবনের মহামূল্যবান বস্তু সময় যা ফুরিয়ে গেলে আফসোস ছাড়া কিছুই থাকেনা। তাই আজই যোগাযোগ করুন।</p>
+      </div>
+      <div class="card">
+        <img src="4.jpg" alt="Chart 4">
+        <h3>🚀 ০৯টি দেশের চার্ট</h3>
+        <p>তিলতিল করে হাজার প্রবাসীর স্বপ্ন পূরণে আমরা দুরন্ত ও সীমাহীন গতিশীল। আপনার স্বপ্নও পূরণ করুন।</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="stats" class="stats fade-in">
+    <h2 class="section-title">🏆 Our Success Story</h2>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-number">5000+</span>
+        <span class="stat-label">Successful Visas</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">25+</span>
+        <span class="stat-label">European Countries</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">11+</span>
+        <span class="stat-label">Years Experience</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">98%</span>
+        <span class="stat-label">Success Rate</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="articles" class="articles fade-in">
+    <h2 class="section-title">📰 Important Articles</h2>
+    <div class="article">
+      <h3>🇪🇺 Some discussion about working in Europe</h3>
+      <p>The visa policy of the Schengen Area is a component within the wider area of freedom, security and justice policy of the European Union. It applies to the Schengen Area and Cyprus, but not to EU member state Ireland.
+
+The visa policy allows nationals of certain countries to enter the Schengen Area via air, land or sea without a visa for up to 90 days within any 180-day period. Nationals of certain other countries are required to have a visa to enter and, in some cases, transit through the Schengen area.
+
+The Schengen Area consists of 25 EU member states and four non-EU countries that are members of EFTA: Iceland, Liechtenstein, Norway and Switzerland. Cyprus, while an EU member state, is not yet part of the Schengen Area but, nonetheless, has a visa policy that is partially based on the Schengen acquis.
+
+Ireland has opted out of the Schengen Agreement and instead operates its own visa policy, as do certain overseas territories of Schengen member states.
+
+Nationals of EU single market countries are not only visa-exempt but are legally entitled to enter and reside in each other's countries. However, their right to freedom of movement in each other's countries can be limited in a reserved number of situations, as prescribed by EU treaties. <img src="map.png" width="100px"></p>
+    </div>
+    <div class="article">
+      <h3>💰 How to Travel Europe on a Budget</h3>
+      <p>ইউরোপে কম খরচে ভ্রমণের জন্য কিছু গুরুত্বপূর্ণ টিপস: 
+
+১. আগে থেকে ফ্লাইট বুক করুন - এতে ৫০% পর্যন্ত সাশ্রয় হতে পারে
+২. হোস্টেল বা বাজেট হোটেল বেছে নিন
+৩. পাবলিক ট্রান্সপোর্ট ব্যবহার করুন
+৪. স্থানীয় খাবার খান, রেস্তোরাঁর পরিবর্তে
+৫. ফ্রি ওয়াকিং ট্যুর এ অংশগ্রহণ করুন
+৬. মিউজিয়াম ও আকর্ষণের জন্য সিটি পাস কিনুন
+
+এই টিপসগুলো অনুসরণ করলে আপনি অর্ধেক খরচে ইউরোপ ভ্রমণ করতে পারবেন।</p>
+    </div>
+    <div class="article">
+      <h3>🍝 European Food You Must Try</h3>
+      <p>ইউরোপের বিখ্যাত খাবারসমূহ যা আপনাকে অবশ্যই চেষ্টা করতে হবে:
+
+🇮🇹 ইতালি: পিজ্জা, পাস্তা, জেলাতো, রিসোত্তো
+🇫🇷 ফ্রান্স: ক্রোয়াসাঁ, বাগেট, চিজ, ওয়াইন
+🇪🇸 স্পেন: পায়েলা, তাপাস, জামন ইবেরিকো
+🇩🇪 জার্মানি: ব্রেটজেল, সসেজ, বিয়ার, স্যুয়ারক্রাউট
+🇬🇷 গ্রিস: মুসাকা, গাইরোস, ফেটা চিজ, অলিভ অয়েল
+🇳🇱 নেদারল্যান্ডস: স্ট্রুপওয়াফেল, চিজ, হেরিং মাছ
+
+প্রতিটি দেশের নিজস্ব রন্ধনশৈলী এবং স্বাদ রয়েছে যা আপনার ভ্রমণকে আরও স্মরণীয় করে তুলবে।</p>
+    </div>
+    <div class="article">
+      <h3>🏛️ Must Visit Historical Places</h3>
+      <p>ইউরোপের ঐতিহাসিক স্থানসমূহ:
+
+🇫🇷 আইফেল টাওয়ার, প্যারিস - রোমান্টিকতার প্রতীক
+🇮🇹 কলোসিয়াম, রোম - প্রাচীন রোমান সভ্যতার নিদর্শন
+🇬🇷 পার্থেনন, এথেন্স - গ্রিক সভ্যতার অমর কীর্তি
+🇪🇸 সাগ্রাদা ফামিলিয়া, বার্সেলোনা - গাউদির অনন্য স্থাপত্য
+🇬🇧 বিগ বেন, লন্ডন - ব্রিটিশ ঐতিহ্যের প্রতীক
+🇩🇪 নিউশভানস্টাইন ক্যাসেল - রূপকথার রাজপ্রাসাদ
+
+এই সব স্থান ভ্রমণ করলে আপনি ইউরোপের সমৃদ্ধ ইতিহাস ও সংস্কৃতির সাথে পরিচিত হতে পারবেন।</p>
+    </div>
+  </section>
+
+  <section id="videos" class="videos fade-in">
+    <h2 class="section-title">🎥 Client Reviews & Success Stories</h2>
+    <div class="video-links">
+      <a href="https://www.facebook.com/61576120425567/videos/1293901505292870/" target="_blank" class="video-link">
+        <i class="fab fa-facebook"></i>
+        <h3>সফল ক্লায়েন্ট রিভিউ</h3>
+        <p>আমাদের সেবা নিয়ে ক্লায়েন্টদের অভিজ্ঞতা শুনুন</p>
+      </a>
+
+      <a href="https://www.facebook.com/61576120425567/videos/1097285805804414/" target="_blank" class="video-link">
+        <i class="fab fa-facebook"></i>
+        <h3>ভিসা সাকসেস স্টোরি</h3>
+        <p>কিভাবে আমরা স্বপ্ন পূরণে সাহায্য করি</p>
+      </a>
+
+       <a href="https://www.facebook.com/61576120425567/videos/795569050085468/" target="_blank" class="video-link">
+        <i class="fab fa-facebook"></i>
+        <h3>সফলতার গল্প</h3>
+        <p>ইচ্ছেথাকলে পথ খুঝে বের করে নিতে হয়</p>
+      </a>
+
+
+
+
+
+
+
+
+
+    </div>
+  </section>
+
+  <section id="about" class="fade-in">
+    <h2 class="section-title">🌟 About Global Visa Consultancy</h2>
+    <p>Global Visa Consultancy হলো আপনার ইউরোপীয় স্বপ্নের প্রবেশদ্বার। আমাদের লক্ষ্য হলো ভ্রমণকারীদের মহাদেশের বৈচিত্র্যময় সংস্কৃতি, সমৃদ্ধ ইতিহাস এবং অত্যাশ্চর্য প্রাকৃতিক দৃশ্য অন্বেষণে অনুপ্রাণিত করা। 
+
+আমাদের ১১ বছরের অভিজ্ঞতায় আমরা হাজারো মানুষের ইউরোপ যাওয়ার স্বপ্ন পূরণ করেছি। আমাদের দক্ষ টিম ২৪/৭ আপনার সেবায় নিয়োজিত থেকে সর্বোচ্চ মানের সেবা প্রদান করে থাকে।</p>
+  </section>
+
+  <footer>
+    <h2 style="margin-bottom: 20px;">🤝 যোগাযোগ করুন</h2>
+    <p style="font-size: 1.2rem; margin-bottom: 10px;">© 2025 Global Visa Consultancy | Explore Europe with Passion</p>
+     <p style="margin-bottom: 20px;">অফিসের ঠিকানা :-  ৫৩৩ নং বাসা, ১১ নং রোড, বারিধারা DOHS , ঢাকা ক্যান্টমেন্ট, ঢাকা।</p>
+    <p style="margin-bottom: 30px;">আপনার ইউরোপীয় স্বপ্ন পূরণের জন্য আজই যোগাযোগ করুন</p>
+    <div class="whatsapp-links">
+      <a href="https://wa.me/01341748810" target="_blank">
+        <i class="fab fa-whatsapp"></i> WhatsApp: 01341748810
+      </a>
+      <a href="https://wa.me/01341628518" target="_blank">
+        <i class="fab fa-whatsapp"></i> WhatsApp: 01341628518
+      </a>
+      <a href="https://wa.me/01819692400" target="_blank">
+        <i class="fab fa-whatsapp"></i> WhatsApp: 01819692400
+      </a>
+      <a href="https://wa.me/01991730282" target="_blank">
+        <i class="fab fa-whatsapp"></i> WhatsApp: 01991730282
+      </a>
+    </div>
+  </footer>
+
+  <div class="popup" id="imgPopup">
+    <img src="" alt="popup">
+  </div>
+
+  <script>
+    // Image popup functionality
+    const popup = document.getElementById('imgPopup');
+    const popupImg = popup.querySelector('img');
+    document.querySelectorAll('.card img').forEach(img => {
+      img.addEventListener('click', () => {
+        popupImg.src = img.src;
+        popup.classList.add('active');
+      });
+    });
+    popup.addEventListener('click', () => popup.classList.remove('active'));
+
+    // Article expand/hide with animation
+    document.querySelectorAll('.articles .article h3').forEach(title => {
+      title.addEventListener('click', () => {
+        const p = title.nextElementSibling;
+        const isVisible = p.style.display === 'block';
+        
+        // Close all other articles
+        document.querySelectorAll('.articles .article p').forEach(otherP => {
+          otherP.style.display = 'none';
+        });
+        document.querySelectorAll('.articles .article h3').forEach(otherTitle => {
+          otherTitle.classList.remove('active');
+        });
+        
+        if (!isVisible) {
+          p.style.display = 'block';
+          title.classList.add('active');
+        }
+      });
+    });
+
+    // Scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add more floating particles dynamically
+    function createParticle() {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.top = Math.random() * 100 + '%';
+      particle.style.animationDelay = Math.random() * 6 + 's';
+      document.querySelector('header').appendChild(particle);
+      
+      setTimeout(() => {
+        particle.remove();
+      }, 6000);
+    }
+
+    // Create particles periodically
+    setInterval(createParticle, 2000);
+
+    // Counter animation for stats
+    function animateCounter(element, target) {
+      let current = 0;
+      const increment = target / 100;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          element.textContent = target + (element.textContent.includes('%') ? '%' : '+');
+          clearInterval(timer);
+        } else {
+          element.textContent = Math.floor(current) + (element.textContent.includes('%') ? '%' : '+');
+        }
+      }, 20);
+    }
+
+    // Animate counters when stats section is visible
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counters = entry.target.querySelectorAll('.stat-number');
+          counters.forEach(counter => {
+            const target = parseInt(counter.textContent);
+            animateCounter(counter, target);
+          });
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    });
+
+    const statsSection = document.querySelector('#stats');
+    if (statsSection) {
+      statsObserver.observe(statsSection);
+    }
+  </script>
+</body>
+</html>
